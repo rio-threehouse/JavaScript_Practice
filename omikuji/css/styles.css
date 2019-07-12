@@ -1,0 +1,42 @@
+body {
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+#btn {
+  width: 200px;
+  height: 200px;
+  background: #9e0a5b;
+  border-radius: 50%;
+  margin: 30px auto 0;
+  box-shadow: 0 10px 0 #750242;
+
+  line-height: 200px;
+  color: #fff;
+  font-size: 42px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+#btn:hover {
+  opacity: 0.9;
+}
+
+/* mousedownイベント */
+#btn.pressed {
+  box-shadow: 0 5px 0 #750242;
+  margin-top: 35px;
+}
+
+#advice {
+  margin-top: 30px;
+}
