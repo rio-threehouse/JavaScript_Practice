@@ -27,3 +27,7 @@ body{
 .lose {
   transform: scale(0.8);
 }
+
+.backbtn {
+  margin-left: 10px;
+}
