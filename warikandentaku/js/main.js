@@ -8,6 +8,22 @@
   var result = document.getElementById('result');
   var reset = document.getElementById('reset');
 
+  function checkInput () {
+    // 正規表現 
+    // /^$/先頭から末尾までをみる
+    // /^[1-9][0-9]*$/ [１桁目に入る数][２桁目以降に入る数]*繰り返し
+    if (
+      // priceとnumの値が正規表現で定義したものならば = 空ではなかったら
+      // match=stringオブジェクト内に含まれている文字列を検索する
+      price.value.match(/^[1-9][0-9]*$/) !== null &&
+      num.value.match(/^[1-9][0-9]*$/) !== null
+    ) {
+      btn.classList.remove('disabled');
+    } else {
+      btn.classList.add('disabled');
+    }
+  }
+
   btn.addEventListener('click', function() {
     var payLess;
     var short;
@@ -18,9 +34,9 @@
     var str;
 
     // disabledが含まれているものはクリックできないようにする
-    if (this.classList.contains('disabled') === true) {
-      return;
-    }
+    // if (this.classList.contains('disabled') === true) {
+      // return;
+    // }
     // round=四捨五入
     // floor=切り捨て
     payLess = Math.floor(price.value / num.value / unit.value) * unit.value;
@@ -42,4 +58,8 @@
 
     result.textContent = str;
   });
+
+  // keyupキーボードを離した時に（何かを打ち込んだ時に）checkInputを実行
+  price.addEventListener('keyup', checkInput);
+  num.addEventListener('keyup', checkInput);
 })(); 
