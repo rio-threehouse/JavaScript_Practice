@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>jQueryの練習</title>
+    <style>
+      .mystyle {
+        color: green;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
     <p>jQueryの練習</p>
@@ -21,7 +27,7 @@
       </li>
     </ul>
 
-    <p><a href="http://google.com">google</a></p>
+    <p><a href="http://google.com" data-sitename="google">google</a></p>
     <p><a href="http://yahoo.co.jp">yahoo</a></p>
     <p><a href="http://dotinstall.com">dotinstall</a></p>
 
@@ -35,6 +41,15 @@
         // $('a[href!="http://google.com"]'). css('background', 'red');
         // $('a[href*="google"]').css('background', 'red');
         $('a[href$="jp"]').css('background', 'red');
+        $('p').addClass("mystyle");
+        // css取得
+        console.log($('p').css('color'));
+        // attrメソッド 取得
+        console.log($('a').attr('href'));
+        // 変更
+        $('a').attr('href', 'http://google.co.jp');
+        // dataメソッド
+        console.log($('a').data('sitename'));
       });
 
     </script>
