@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>jQueryの練習</title>
+  </head>
+  <body>
+    <p>jQueryの練習</p>
+    <ul id="main">
+      <li>0</li>
+      <li class="item">1</li>
+      <li class="item">2</li>
+      <li>3
+        <ul id="sub">
+          <li>3-0</li>
+          <li>3-1</li>
+          <li class="item">3-2</li>
+          <li class="item">3-3</li>
+          <li>3-4</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><a href="http://google.com">google</a></p>
+    <p><a href="http://yahoo.co.jp">yahoo</a></p>
+    <p><a href="http://dotinstall.com">dotinstall</a></p>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+      // このドキュメントが読み込まれたら処理をする↓
+      // $(document).ready(function () {
+      $(function() {
+        $('#sub > li:eq(2)').siblings().css('color', 'red');
+        // $('a[href="http://google.com"]').css('background', 'red');
+        // $('a[href!="http://google.com"]'). css('background', 'red');
+        // $('a[href*="google"]').css('background', 'red');
+        $('a[href$="jp"]').css('background', 'red');
+      });
+
+    </script>
+  </body>
+</html>
