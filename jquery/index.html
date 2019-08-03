@@ -8,6 +8,13 @@
         color: green;
         font-size: 16px;
       }
+      .box {
+        width:100px;
+        height:100px;
+        background:skyblue;
+        margin-top:10px;
+        cursor:pointer;
+      }
     </style>
   </head>
   <body>
@@ -33,6 +40,9 @@
 
     <p id="tag">タグの操作</p>
     <input type="text" value="hellow">
+
+    <div id="box" class="box"></div>
+    <div id="box2" class="box"></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
@@ -71,6 +81,31 @@
           // li.prependTo($('ul'));
           // $('ul').append(li);
           li.appendTo($('ul'));
+
+          $('#box').click(function() {
+            $('#box').hide('slow');
+            $('#box').show(1500);
+            $('#box').toggle(350);
+            $('#box').toggle(350);
+            $('#box').fadeOut(800);
+            $('#box').fadeIn(500, function() {
+              alert('done!');
+            });
+          });
+
+          $('#box2')
+            .mouseover(function() {
+              $(this).css("background", 'pink');
+            })
+            .mousemove(function(e) {
+              $(this).text(e. pageX);
+            })
+            .mouseout(function(){
+              $(this)
+              .css('background', 'skyblue')
+              .text('');
+            });
+          
       });
 
     </script>
