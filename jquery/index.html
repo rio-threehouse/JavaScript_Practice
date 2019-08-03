@@ -31,6 +31,9 @@
     <p><a href="http://yahoo.co.jp">yahoo</a></p>
     <p><a href="http://dotinstall.com">dotinstall</a></p>
 
+    <p id="tag">タグの操作</p>
+    <input type="text" value="hellow">
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
       // このドキュメントが読み込まれたら処理をする↓
@@ -50,6 +53,14 @@
         $('a').attr('href', 'http://google.co.jp');
         // dataメソッド
         console.log($('a').data('sitename'));
+
+        // $('#tag').text('タグの中身の変更');
+        console.log($('#tag').text());
+        // $('#tag').html('<a href="">html要素をリンクに変更</a>');
+        console.log($('input').val());
+        $('input').val('hellow again');
+        // $('#tag').empty();
+        // $('#tag').remove();
       });
 
     </script>
