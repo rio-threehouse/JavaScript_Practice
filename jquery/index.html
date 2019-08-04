@@ -44,6 +44,17 @@
     <div id="box" class="box"></div>
     <div id="box2" class="box"></div>
 
+    <input type="text" id="form">
+    <select  id="fruit" name="fruit">
+      <option>りんご</option>
+      <option>みかん</option>
+      <option>バナナ</option>
+    </select>
+
+    <div>
+      <button>add!</button>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
       // このドキュメントが読み込まれたら処理をする↓
@@ -74,38 +85,58 @@
 
         var li = $('<li>').text('just added');
         // $('ul > li:eq(1)').before(li);
-          // li.insertBefore($('ul > li:eq(1)'));
-          // $('ul > li:eq(1)').after(li);
-          // li.insertAfter($('ul > li:eq(1)'));
-          // $('ul').prepend(li);
-          // li.prependTo($('ul'));
-          // $('ul').append(li);
-          li.appendTo($('ul'));
+        // li.insertBefore($('ul > li:eq(1)'));
+        // $('ul > li:eq(1)').after(li);
+        // li.insertAfter($('ul > li:eq(1)'));
+        // $('ul').prepend(li);
+        // li.prependTo($('ul'));
+        // $('ul').append(li);
+        li.appendTo($('ul'));
 
-          $('#box').click(function() {
-            $('#box').hide('slow');
-            $('#box').show(1500);
-            $('#box').toggle(350);
-            $('#box').toggle(350);
-            $('#box').fadeOut(800);
-            $('#box').fadeIn(500, function() {
-              alert('done!');
-            });
+        $('#box').click(function() {
+          $('#box').hide('slow');
+          $('#box').show(1500);
+          $('#box').toggle(350);
+          $('#box').toggle(350);
+          $('#box').fadeOut(800);
+          $('#box').fadeIn(500, function() {
+            alert('done!');
+          });
+        });
+
+        $('#box2')
+          .mouseover(function() {
+            $(this).css("background", 'pink');
+          })
+          .mousemove(function(e) {
+            $(this).text(e. pageX);
+          })
+          .mouseout(function(){
+            $(this)
+            .css('background', 'skyblue')
+            .text('');
+          });
+          
+        $('#form')
+          .focus(function () {
+            $(this).css('background', 'pink');
+          })
+          .blur(function() {
+            $(this).css('background', 'white');
           });
 
-          $('#box2')
-            .mouseover(function() {
-              $(this).css("background", 'pink');
-            })
-            .mousemove(function(e) {
-              $(this).text(e. pageX);
-            })
-            .mouseout(function(){
-              $(this)
-              .css('background', 'skyblue')
-              .text('');
-            });
-          
+        $('#fruit').change(function() {
+          alert('chenged!');
+        });
+
+        $('button').click(function() {
+          var p = $('<p>').text('vanish').addClass('vanish');
+          $('button').before(p);
+        });
+
+        $('div').on('click', '.vanish', function() {
+          $(this).remove();
+        });
       });
 
     </script>
